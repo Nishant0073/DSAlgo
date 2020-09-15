@@ -27,6 +27,7 @@ struct Node
 };
 
 
+//function to add addition in sum linkedlis.
 NODE* insertint(NODE *root, int  num)
 {
 	NODE *p = (NODE*) malloc(sizeof(NODE));
@@ -49,6 +50,7 @@ NODE* insertint(NODE *root, int  num)
 	return root;
 }
 
+//function to insert the data in number1 and number 2.
 NODE* insert(NODE *root, char num[], int i)
 {
 	NODE *p = (NODE*) malloc(sizeof(NODE));
@@ -71,17 +73,18 @@ NODE* insert(NODE *root, char num[], int i)
 	}
 	return root;
 }
-
-
+//function to add nodes data
 
 NODE* addlists(NODE *num1, NODE *num2, NODE *sum, int carry)
 {
+	//if both list are null
 	if (num1 == NULL && num2 == NULL)
 	{
 		return sum;
 	}
-
-
+	
+	
+	//if both liked list are not null
 	while (num1 != NULL && num2 != NULL)
 	{
 		int val = num1->data + num2->data + carry;
@@ -136,7 +139,7 @@ NODE* addlists(NODE *num1, NODE *num2, NODE *sum, int carry)
 }
 
 
-
+//functioin to print ans
 void traverse(NODE *root)
 {
 	while (root != NULL)
@@ -146,6 +149,8 @@ void traverse(NODE *root)
 	}
 }
 
+
+//function to reverse the answer.
 NODE* reverse(NODE *root)
 {
 	NODE *current = root;
@@ -177,6 +182,7 @@ int main()
 	NODE *sum = NULL;
 	int i = 0;
 	int j = 0;
+	
 	while (num1[i] != '\0')
 		i++;
 	i--;

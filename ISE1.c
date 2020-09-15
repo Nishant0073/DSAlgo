@@ -1,10 +1,5 @@
+
 /*
-DIV. : B (SYCSE)
-Course : Data Structure and Algorithm
-Roll Numbers:2125,2133,2138
-
-				MINI PROJECT(ISE I)
-
 Que.
 
 	In older personal computers, the largest integer is 32,767 and the largest long integer is

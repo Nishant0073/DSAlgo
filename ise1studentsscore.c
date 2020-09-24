@@ -1,3 +1,17 @@
+/*Qus.
+
+Student Scores
+Write a program to read a list of students from a file and create a list. The program should use a
+linked list for implementation. Each node in the linked list should have the student’s name, a
+pointer to the next student, and a pointer to a linked list of scores. There may be up to four scores
+for each student.
+The program should initialize the student list by reading the students’ names from the text file and
+creating null score lists. It should then loop through the list, prompting the user to enter the scores
+for each student. The scores’ prompt should include the name of the student.
+After all scores have been entered, the program should print the scores for each student along
+with score total and the average score. The average score should include only those score present.
+
+*/
 #include<stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>

@@ -92,6 +92,8 @@ int main()
 		case 3:
 			flag = true;
 			break;
+		default:
+			printf("Enter valid option.\n");
 		}
 		if (flag)
 			break;

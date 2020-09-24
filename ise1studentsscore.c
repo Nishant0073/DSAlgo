@@ -14,7 +14,8 @@ struct Scores
 
 struct Node
 {
-	char name[100];
+	char fname[100];
+	char lname[100];
 	Scores *scores;
 	NODE *next;
 };
@@ -24,8 +25,8 @@ void traverse(NODE *list)
 {
 	printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
 	while (list != NULL) {
-		printf("The name of student is :  %s.\n", list->name);
-		printf("The average marks of %s student : %.2f.\n\n", list->name, list->scores->avg);
+		printf("The name of student is :  %s %s.\n", list->fname, list->lname);
+		printf("The average marks of %s %s : %.2f.\n\n", list->fname, list->lname, list->scores->avg);
 		printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
 
 
@@ -36,39 +37,45 @@ void traverse(NODE *list)
 
 NODE* insert(NODE* list)
 {
-	NODE *p = (NODE*) malloc(sizeof(NODE));
-	Scores *q = (Scores*) malloc(sizeof(Scores));
-	printf("Enter student name:\n");
-	scanf("%s", &p->name);
-	printf("Enter the marks of Subject1:\n");
-	scanf("%d", &q->sub1);
 
-	printf("Enter the marks of Subject2:\n");
-	scanf("%d", &q->sub2);
+	FILE *users_file = fopen("text.txt", "r");
+	NODE *temp = NULL;
 
-	printf("Enter the marks of Subject3:\n");
-	scanf("%d", &q->sub3);
-
-	printf("Enter the marks of Subject4:\n");
-	scanf("%d", &q->sub4);
-
-	q->avg = (q->sub1 + q->sub2 + q->sub3 + q->sub4) / 4;
-	p->scores = q;
-	p->next = NULL;
-
-	if (list == NULL)
+	while (!feof(users_file))
 	{
-		return p;
-	}
-	else
-	{
-		NODE *temp = list;
-		while (temp->next != NULL) {
+		NODE *p = (NODE*) malloc(sizeof(NODE));
+		Scores *q = (Scores*) malloc(sizeof(Scores));
+		fscanf(users_file, "%s %s", &p->fname, &p->lname);
+
+		printf("Enter the mark of %s %s:\n", &p->fname, &p->lname);
+		printf("Subject1:\n");
+		scanf("%d", &q->sub1);
+
+		printf("Subject2:\n");
+		scanf("%d", &q->sub2);
+
+		printf("Subject3:\n");
+		scanf("%d", &q->sub3);
+
+		printf("Subject4:\n");
+		scanf("%d", &q->sub4);
+
+		q->avg = (q->sub1 + q->sub2 + q->sub3 + q->sub4) / 4;
+		p->scores = q;
+		p->next = NULL;
+
+		if (list == NULL)
+		{
+			list = temp = p;
+		}
+		else
+		{
+			temp->next = p;
 			temp = temp->next;
 		}
-
-		temp->next = p;
 	}
+
+
 	return list;
 }
 
@@ -76,90 +83,49 @@ int main()
 {
 	NODE *list = NULL;
 
-	while (1) {
-		bool flag = false;
-		int n;
-		printf("Enter the option:\n1)Add student information.\n2)Print student information.\n3)Exit\n:");
-		scanf("%d", &n);
-		switch (n)
-		{
-		case 1:
-			list = insert(list);
-			break;
-		case 2:
-			traverse(list);
-			break;
-		case 3:
-			flag = true;
-			break;
-		default:
-			printf("Enter valid option.\n");
-		}
-		if (flag)
-			break;
-
-		printf("\n");
-	}
+	list = insert(list);
+	traverse(list);
+	printf("\n");
 }
 
+/*ise(master*) » ./a.out
 
-//Input/Output:
-
-
-/*ise(master*) » ./a.out                                                                              nishant0073@Proton
-Enter the option:
-1)Add student information.
-2)Print student information.
-3)Exit
-:1
-Enter student name:
-NISHANT_SHINGATE
-Enter the marks of Subject1:
-89
-Enter the marks of Subject2:
+Enter the mark of NISHANT SHINGATE:
+Subject1:
+87
+Subject2:
 77
-Enter the marks of Subject3:
+Subject3:
 90
-Enter the marks of Subject4:
-76
-
-Enter the option:
-1)Add student information.
-2)Print student information.
-3)Exit
-:1
-Enter student name:
-RAM_MORE
-Enter the marks of Subject1:
-89
-Enter the marks of Subject2:
-09
-Enter the marks of Subject3:
+Subject4:
+66
+Enter the mark of RAM MORE:
+Subject1:
 88
-Enter the marks of Subject4:
-70
-
-Enter the option:
-1)Add student information.
-2)Print student information.
-3)Exit
-:2
+Subject2:
+90
+Subject3:
+99
+Subject4:
+76
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The name of student is :  NISHANT_SHINGATE.
-The average marks of NISHANT_SHINGATE student : 83.00.
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The name of student is :  RAM_MORE.
-The average marks of RAM_MORE student : 64.00.
+The name of student is :  NISHANT SHINGATE.
+The average marks of NISHANT SHINGATE : 80.00.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+The name of student is :  RAM MORE.
+The average marks of RAM MORE : 88.00.
 
-Enter the option:
-1)Add student information.
-2)Print student information.
-3)Exit
-:3
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+text.txt file:
+
+NISHANT SHINGATE
+RAM MORE
+
 */

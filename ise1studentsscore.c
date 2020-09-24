@@ -99,3 +99,65 @@ int main()
 		printf("\n");
 	}
 }
+
+
+//Input/Output:
+
+
+/*ise(master*) » ./a.out                                                                              nishant0073@Proton
+Enter the option:
+1)Add student information.
+2)Print student information.
+3)Exit
+:1
+Enter student name:
+NISHANT_SHINGATE
+Enter the marks of Subject1:
+89
+Enter the marks of Subject2:
+77
+Enter the marks of Subject3:
+90
+Enter the marks of Subject4:
+76
+
+Enter the option:
+1)Add student information.
+2)Print student information.
+3)Exit
+:1
+Enter student name:
+RAM_MORE
+Enter the marks of Subject1:
+89
+Enter the marks of Subject2:
+09
+Enter the marks of Subject3:
+88
+Enter the marks of Subject4:
+70
+
+Enter the option:
+1)Add student information.
+2)Print student information.
+3)Exit
+:2
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The name of student is :  NISHANT_SHINGATE.
+The average marks of NISHANT_SHINGATE student : 83.00.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The name of student is :  RAM_MORE.
+The average marks of RAM_MORE student : 64.00.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Enter the option:
+1)Add student information.
+2)Print student information.
+3)Exit
+:3
+*/

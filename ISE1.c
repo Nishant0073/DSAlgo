@@ -105,7 +105,15 @@ NODE* addlists(NODE *num1, NODE *num2, NODE *sum, int carry)
 	{
 		while (num2 != NULL) {
 			int val = num2->data + carry;
-			carry = 0;
+			if (val > 9)
+			{
+				carry = 1;
+				val = val - 10;
+			}
+			else
+			{
+				carry = 0;
+			}
 			sum = insertint(sum, val);
 			num2 = num2->next;
 		}

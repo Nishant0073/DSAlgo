@@ -30,4 +30,4 @@ int main()
 }
 
 
-https://www.codechef.com/problems/RECTANGL
+//https://www.codechef.com/problems/RECTANGL

@@ -12,7 +12,7 @@ struct NODE
 
 
 
-Node* insertAtStart(int num[], int i, Node *list)
+Node* insertAtEnd(int num[], int i, Node *list)
 {
 	Node *p = (Node*)malloc(sizeof(Node));
 	p->data = num[i - 1];
@@ -189,8 +189,8 @@ int main()
 		anum2[j] = snum2[j] - '0';
 	}
 
-	list1 = insertAtStart(anum1, i, list1);
-	list2 = insertAtStart(anum2, j, list2);
+	list1 = insertAtEnd(anum1, i, list1);
+	list2 = insertAtEnd(anum2, j, list2);
 
 	sum = addNumbers(list1, list2, sum);
 

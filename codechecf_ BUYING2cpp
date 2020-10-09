@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+#define nl '\n'
+typedef long long int ll;
+using namespace std;
+
+
+int main()
+{
+     ios_base::sync_with_stdio(false);
+     cin.tie(NULL);
+     int t;
+     cin >> t;
+     while (t--)
+     {
+          int n1,n2;
+          cin>>n1>>n2;
+          int a[n1];
+          int sum=0;
+          for(int i=0;i<n1;i++)
+          {
+               int num;
+               cin>>num;
+               a[i]=num;
+               sum+=num;
+          }
+          sort(a,a+n1);
+
+          int rem=(sum%n2);
+          int mul=(sum/n2);
+
+          if((rem>=a[0]))
+          {
+               cout<<-1;
+          }
+          else
+          {
+               cout<<(int)(sum/n2);
+          }
+          cout<<nl;
+     }
+}
+//https://www.codechef.com/problems/BUYING2

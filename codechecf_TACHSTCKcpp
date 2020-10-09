@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#define nl '\n'
+typedef long long int ll;
+using namespace std;
+
+
+int main()
+{
+     ios_base::sync_with_stdio(false);
+     cin.tie(NULL);
+
+     ll n, d;
+     cin >> n >> d;
+     std::vector<ll> v;
+
+     for (ll i = 0; i < n; ++i)
+     {
+          ll num;
+          cin >> num;
+          v.push_back(num);
+     }
+
+     ll cnt = 0;
+
+
+     sort(v.begin(), v.end());
+
+     while (v.size() > 1)
+     {
+          if (v[1] - v[0] <= d)
+          {
+               cnt++;
+               v.erase(v.begin());
+               v.erase(v.begin());
+          }
+          else
+          {
+               v.erase(v.begin());
+          }
+     }
+     cout<<cnt<<nl;
+}
+
+//https://www.codechef.com/problems/TACHSTCK

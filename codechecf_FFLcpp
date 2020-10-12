@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+#define nl '\n'
+typedef long long int ll;
+using namespace std;
+
+
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n, s;
+		cin >> n >> s;
+		std::vector<int> v1(n);
+		std::vector<int> v2(n);
+		for (int i = 0; i < n; ++i)
+		{
+			cin >> v1[i];
+		}
+
+		for (int i = 0; i < n; ++i)
+		{
+			cin >> v2[i];
+		}
+		int min0 = 101, min1 = 101;
+		for (int i = 0; i < n; ++i)
+		{
+			if (v2[i]==0)
+			{
+				min0=min(min0,v1[i]);
+			}
+			else
+			{
+				min1=min(min1,v1[i]);
+			}
+		}
+		if ((s + min0 + min1) <= 100)
+		{
+			cout << "yes\n";
+		}
+		else
+		{
+			cout << "no\n";
+		}
+	}
+}
+
+//https://www.codechef.com/problems/FFL

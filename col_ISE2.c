@@ -8,7 +8,7 @@ F(M,N) = F(M–1,N) + F(M–1, N–1), otherwise*/
 #include<stdio.h>
 int f(int m, int n)
 {
-	if (m == 0)
+	if (m == 0 || (m>=n && n>=1)
 	{
 		return 1;
 	}

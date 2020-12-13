@@ -68,7 +68,14 @@ void insertAtMid()
 	}
 	else if (start == NULL)
 	{
-		printf("List is empty....\n");
+		if (loc == 1)
+		{
+			start = p;
+		}
+		else
+		{
+			printf("List is empty....\n");
+		}
 	}
 	else
 	{

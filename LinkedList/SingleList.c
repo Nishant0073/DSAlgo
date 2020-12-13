@@ -183,7 +183,7 @@ void deletAtMid()
 				q = q->next;
 				cnt++;
 			}
-			if (q == NULL)
+			if (q->next == NULL)
 			{
 				printf("Index is out of range....\n");
 			}

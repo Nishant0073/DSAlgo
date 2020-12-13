@@ -1,5 +1,5 @@
 //Doubly linked list in C
-//Code By Nishant_0073
+//Code By Nishant_0073(Nishant Shingate)
 
 #include<stdio.h>
 #include<stdlib.h>

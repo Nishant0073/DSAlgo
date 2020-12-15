@@ -2,7 +2,7 @@
 //Code by Nishant_0073(Nishant Shingate)
 #include<stdio.h>
 #include<stdlib.h>
-typedef struct NODE Node;
+
 
 int search(int arr[],int key,int n)
 {

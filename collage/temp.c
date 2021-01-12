@@ -65,7 +65,7 @@ void solve(int k)
         n++;
     }
 
-    printf("The output is : %d\n",n );
+    printf("The output is : %d\n",ans );
    
 }
 

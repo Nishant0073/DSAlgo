@@ -1,88 +1,119 @@
-#include<stdio.h>
-#include<stdlib.h>
-typedef struct NODE Node;
+#include <stdio.h>
+#include <stdlib.h>
 
 
-struct NODE
+struct Node
 {
-    int data;
-    Node *next;
+	int data;
+	struct Node* next;
 };
 
-Node *start = NULL;
-Node *rev=NULL;
-
-void insertAtEnd()
+void traverse(struct Node* start)
 {
-    Node *p = (Node*) malloc(sizeof(Node));
-    p->next = NULL;
-    scanf("%d", &p->data);
+	struct Node* p = start;
+	while (p)
+	{
+		printf("%d -> ", p->data);
+		p = p->next;
+	}
 
-    if (!start)
-    {
-        start = p;
-    }
-    else
-    {
-        Node *q = start;
-        while (q->next != NULL)
-        {
-            q = q->next;
-        }
-        q->next = p;
-    }
+	printf("NULL\n");
 }
 
-Node* reverse(Node *root)
+void insert(struct Node**	 start, int data)
 {
-    Node *current = root;
-    Node *prev = NULL, *next = NULL;
-    while (current != NULL)
-    {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
-    }
+	struct Node* p = (struct Node*)malloc(sizeof(struct Node));
+	p->data = data;
+	p->next=NULL;
+	struct Node* q =*start;
 
-    return prev;
-}
-
-void solve(int k)
-{
-
-   Node *p = reverse(start);
-   int n=1;
-   int ans=-1;
-    while(p!=NULL)
-    {
-        if(n%k == 0)
-        {
-            ans=p->data;
-            break;
-        }
-        p=p->next;
-        n++;
-    }
-
-    printf("The output is : %d\n",ans );
-   
+	if(q==NULL)
+	{
+		*start = p;
+	}
+	else
+	{
+		while(q->next!=NULL)
+		{
+			q=q->next;
+		}
+		q->next = p;
+	}
 }
 
 
-int main()
+void movetoend(struct Node** p, struct Node** q)
 {
-   int n;
-   printf("Enter the number of nodes in List:\n");
-   scanf("%d",&n);
-   printf("Enter the nodes in linkedList:\n");
-   while(n--)
-   {
-    insertAtEnd();
-   }
-   int k;
-   printf("Enter the value of k:\n");
-   scanf("%d",&k);
-   solve(k);
-    return 0;
+
+	if (*q == NULL)
+		return;
+
+	struct Node* r = *q;
+
+	*q = (*q)->next;
+
+	r->next = *p;
+	*p = r;
 }
+
+
+void move(struct Node* start)
+{
+
+	if (start == NULL)
+		return;
+
+
+	struct Node *odd = start;
+	struct Node *even = NULL, *prev = NULL;
+
+
+	while (odd && odd->next)
+	{
+
+		movetoend(&even, &(odd->next));
+
+
+		prev = odd;
+		odd = odd->next;
+	}
+
+
+	if (odd)
+		odd->next = even;
+	else
+		prev->next = even;
+}
+
+
+int main(void)
+{
+
+
+
+	struct Node* start = NULL;
+
+	printf("Enter the size of list:\n");
+	int n;
+	scanf("%d", &n);
+
+	printf("Enter the %d elements of list:\n");
+	for (int i = 0; i < n; i++)
+	{
+		int data;
+		scanf("%d", &data);
+		insert(&start, data);
+	}
+
+	printf("The Enterd list is:\n");
+	traverse(start);
+
+	move(start);
+
+	printf("After moveing even elements at end of list:\n");
+	traverse(start);
+
+	return 0;
+}
+
+

@@ -76,5 +76,6 @@ int main()
 
                 merge_sort(arr, 0, n - 1);
                 print(arr, n);
+                cout<<endl;
         }
 }

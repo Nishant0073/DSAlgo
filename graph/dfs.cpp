@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-//BFS on non-directed graph.
+//DFS on non-directed graph.
 
-//Function for BFS
+//Function for DFS
 void  dfs(vector<int> adj[],int vis[],int s)
 {
      cout<<s<<" " ;
